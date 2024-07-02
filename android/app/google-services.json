@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "948664883391",
+    "project_id": "microsaas-todo",
+    "storage_bucket": "microsaas-todo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948664883391:android:7f6233fccbdbf1da2c4e0a",
+        "android_client_info": {
+          "package_name": "com.mycompany.saastodo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtlwqJO3ycrJTPJUKyskLlMoKUvNOWhQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
