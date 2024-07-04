@@ -505,14 +505,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                       TasksRecord>>(
                                                                 stream:
                                                                     queryTasksRecord(
-                                                                  queryBuilder:
-                                                                      (tasksRecord) =>
-                                                                          tasksRecord
-                                                                              .where(
-                                                                    'status',
-                                                                    isEqualTo:
-                                                                        'Fazendo',
-                                                                  ),
+                                                                  queryBuilder: (tasksRecord) =>
+                                                                      tasksRecord
+                                                                          .where(
+                                                                            'status',
+                                                                            isEqualTo:
+                                                                                'Fazendo',
+                                                                          )
+                                                                          .where(
+                                                                            'owner_id',
+                                                                            isEqualTo:
+                                                                                currentUserUid,
+                                                                          ),
                                                                 ),
                                                                 builder: (context,
                                                                     snapshot) {
@@ -723,13 +727,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           TasksRecord>>(
                                                                     stream:
                                                                         queryTasksRecord(
-                                                                      queryBuilder:
-                                                                          (tasksRecord) =>
-                                                                              tasksRecord.where(
-                                                                        'status',
-                                                                        isEqualTo:
-                                                                            'Feita',
-                                                                      ),
+                                                                      queryBuilder: (tasksRecord) => tasksRecord
+                                                                          .where(
+                                                                            'status',
+                                                                            isEqualTo:
+                                                                                'Feita',
+                                                                          )
+                                                                          .where(
+                                                                            'owner_id',
+                                                                            isEqualTo:
+                                                                                currentUserUid,
+                                                                          ),
                                                                     ),
                                                                     builder:
                                                                         (context,
@@ -930,10 +938,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 (tasksRecord) =>
                                                                     tasksRecord
                                                                         .where(
-                                                              'status',
-                                                              isEqualTo:
-                                                                  'A Fazer',
-                                                            ),
+                                                                          'status',
+                                                                          isEqualTo:
+                                                                              'A Fazer',
+                                                                        )
+                                                                        .where(
+                                                                          'owner_id',
+                                                                          isEqualTo:
+                                                                              currentUserUid,
+                                                                        ),
                                                           ),
                                                           builder: (context,
                                                               snapshot) {
@@ -977,7 +990,16 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         StreamBuilder<
                                                             List<TasksRecord>>(
                                                           stream:
-                                                              queryTasksRecord(),
+                                                              queryTasksRecord(
+                                                            queryBuilder:
+                                                                (tasksRecord) =>
+                                                                    tasksRecord
+                                                                        .where(
+                                                              'owner_id',
+                                                              isEqualTo:
+                                                                  currentUserUid,
+                                                            ),
+                                                          ),
                                                           builder: (context,
                                                               snapshot) {
                                                             // Customize what your widget looks like when it's loading.
@@ -1065,9 +1087,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             (tasksRecord) =>
                                                                 tasksRecord
                                                                     .where(
-                                                          'status',
-                                                          isEqualTo: 'A Fazer',
-                                                        ),
+                                                                      'status',
+                                                                      isEqualTo:
+                                                                          'A Fazer',
+                                                                    )
+                                                                    .where(
+                                                                      'owner_id',
+                                                                      isEqualTo:
+                                                                          currentUserUid,
+                                                                    ),
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -1199,7 +1227,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
-                                                                0.0, 0.0),
+                                                                0.0, 16.0),
                                                     child: Text(
                                                       'Um resumo das suas tarefas:',
                                                       style: FlutterFlowTheme
@@ -1220,10 +1248,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       StreamBuilder<List<TasksRecord>>(
                                         stream: queryTasksRecord(
                                           queryBuilder: (tasksRecord) =>
-                                              tasksRecord.where(
-                                            'status',
-                                            isEqualTo: 'A Fazer',
-                                          ),
+                                              tasksRecord
+                                                  .where(
+                                                    'status',
+                                                    isEqualTo: 'A Fazer',
+                                                  )
+                                                  .where(
+                                                    'owner_id',
+                                                    isEqualTo: currentUserUid,
+                                                  ),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
